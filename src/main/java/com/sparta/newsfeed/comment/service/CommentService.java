@@ -55,8 +55,7 @@ public class CommentService {
     @Transactional
     public List<CommentResponseDto> getCommentsByFeedId(Long feedId) {
         // Feed 조회
-        Feed feed = feedRepository.findfeedById(feedId)
-                .orElseThrow(() -> new ResourceNotFoundException("Feed not found"));
+        Feed feed = feedRepository.findfeedById(feedId);
 
         // 해당 Feed에 달린 댓글 목록 조회
         List<Comment> comments = commentRepository.findByfeedId(feedId);
